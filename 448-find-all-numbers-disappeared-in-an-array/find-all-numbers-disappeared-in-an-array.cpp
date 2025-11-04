@@ -1,13 +1,24 @@
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
-        sort(nums.begin(), nums.end()); 
-        vector<int> nonexist; 
-        unordered_map<int,int>mp; 
-        for(auto a: nums) mp[a]+=1; 
-        for(int i = 1; i <= nums.size(); i ++){
-            if(mp.find(i) == mp.end()) nonexist.push_back(i);
+        int n = nums.size();
+        vector<int> result;
+
+        // Mark each number's corresponding index as visited
+        for (int i = 0; i < n; i++) {
+            int idx = abs(nums[i]) - 1;
+            if (nums[idx] > 0) {
+                nums[idx] = -nums[idx];
+            }
         }
-        return nonexist; 
+
+        // Collect missing numbers where indices remained positive
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                result.push_back(i + 1);
+            }
+        }
+
+        return result;
     }
 };
