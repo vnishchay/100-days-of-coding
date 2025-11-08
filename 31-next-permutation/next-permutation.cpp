@@ -23,3 +23,12 @@ public:
         return; 
     }
 };
+
+
+// | Step | What?            | Why?                                                                     |
+// | ---- | ---------------- | ------------------------------------------------------------------------ |
+// | 1    | Find suffix      | Locate part where change is needed to get next permutation               |
+// | 2    | Find pivotk      | Smallest possible increase                                               |
+// | 3    | Find swap indexl | Ensure increase is minimal                                               |
+// | 4    | Swap             | Move to new permutation                                                  |
+// | 5    | Reverse suffix   | Make tail minimal, ensuring it’s the next permutation (not skipping any) |
