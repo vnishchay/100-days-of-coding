@@ -6,12 +6,8 @@ class Solution:
         mp = {}
 
         for c in s:
-            if c in mp:
-                mp[c]+=1
-            else :
-                mp[c]=1
+            mp[c] = mp.get(c, 0) + 1
         
-
         for a in t:
             if a not in mp:
                 return False
