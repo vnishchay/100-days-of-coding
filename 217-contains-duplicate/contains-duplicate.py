@@ -5,7 +5,6 @@ class Solution:
         for n in nums:
             if n not in mp:
                 mp[n]=True
-        
-        if len(mp) == len(nums):
-            return False
-        return True
+            else:
+                return True
+        return False
