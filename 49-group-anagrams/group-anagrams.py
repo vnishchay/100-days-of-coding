@@ -1,23 +1,16 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        mp = {}
-        arrr = []
 
-        for ss in strs:
-            sorted_s = ''.join(sorted(ss))
-            if sorted_s not in mp:
-                mp[sorted_s] = []
-            mp[sorted_s].append(ss)
+        mp = defaultdict(list)
+        for s in strs:
+            ss = ''.join(sorted(s))
+            mp[ss].append(s)
         
+        arr = []
         for _, values in mp.items():
-            arrr.append(values)
+            arr.append(values)
         
-        return arrr
-
-                    
-
-        
-
-
+        return arr
+            
 
         
