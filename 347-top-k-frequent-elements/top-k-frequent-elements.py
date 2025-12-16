@@ -1,26 +1,24 @@
-
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # top k frequent elements. 
+        # nums
+        # k 
 
-        mp = {}
+        c = Counter(nums)
+        hp = []
 
-        for num in nums:
-            if num not in mp:
-                mp[num]  = 0 
-            mp[num]+=1
+        for key, value in c.items():
+            print(key, value)
+            heapq.heappush(hp, [value, key])
+
+            if len(hp) > k :
+                heapq.heappop(hp)
+        
+        return list([ value for key, value in hp ])
+
         
         
-        pq = []
-        for key, values in mp.items():
-            heapq.heappush(pq, (-values, key))
 
-        res = []
-        while k > 0:
-            freq, val = heapq.heappop(pq)
-            res.append(val)
-            k-=1
         
-        return res
 
+            
         
