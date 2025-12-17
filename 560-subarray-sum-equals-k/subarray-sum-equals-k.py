@@ -9,6 +9,5 @@ class Solution:
             prefix += num
             count += mp[prefix - k]
             mp[prefix]+=1
-        
-        
+            
         return count
