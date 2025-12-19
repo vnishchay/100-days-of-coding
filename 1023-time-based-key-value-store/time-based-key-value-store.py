@@ -18,7 +18,7 @@ class TimeMap:
         arr = self.mp[key]  # [(ts, val), ...] sorted by ts
         # binary search for rightmost (ts <= timestamp)
         # trick: search for (timestamp, chr(127)) to use tuple ordering directly [web:444]
-        i = bisect_right(arr, (timestamp, chr(127))) - 1
+        i = bisect_left(arr, (timestamp, chr(127))) - 1
 
         if i < 0:
             return ""
